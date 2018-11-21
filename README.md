@@ -1,5 +1,5 @@
 # socketmusic-server v 0.01
-server for the socketmusic series of projects (such as (socketMusic:wireless)[https://derekxkwan.com/musicart/socketMusic.html])
+server for the socketmusic series of projects (such as [socketMusic:wireless](https://derekxkwan.com/musicart/socketMusic.html))
 
 ## about
 abstracting out the server from my previous socketmusic:wireless project and moving to a new build system of **ClojureScript** compiled by **shadow-cljs** to run on **node.js**
