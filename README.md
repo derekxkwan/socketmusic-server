@@ -27,8 +27,8 @@ format for osc messages sent to the osc server
 - `/num-clients` sends the number of clients on osc output port on address `/num-clients`
 - `/ws/all [event-name] [opt. args]` broadcasts named event with args bundled in array format to all clients
 - `/ws/client-idx [client-idx] [event-name] [opt. args]` - trigger named event with args bundled in array format to client at given index of client-list
-- `/ws/client [client] [opt. args]` - trigger named event with args bundled in array format to specified (in base64) client
-- `/ws/rand-client [opt. args]` -  trigger named event with args bundled in array format to random client
+- `/ws/client [client] [event-name] [opt. args]` - trigger named event with args bundled in array format to specified (in base64) client
+- `/ws/rand-client [event-name] [opt. args]` -  trigger named event with args bundled in array format to random client
 
 ## build
 - compile: `shadow-cljs compile app`
