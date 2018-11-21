@@ -17,9 +17,7 @@ abstracting out the server from my previous socketmusic:wireless project and mov
 - outgoing osc messages are on port `11111`
 - website is hosted on port `3000`
 - the root directory of the hosted website is passed as the **first arg**
-  - **js** files should be in `js` dir
-  - **css** files should be in `css` dir
-  - **resources** should be the `res` dir
+  - defaults to root of server app
 - running the app: `node socketmusic.js [webpage dir]`
 
 ## build

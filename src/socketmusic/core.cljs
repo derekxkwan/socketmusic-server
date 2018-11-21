@@ -7,21 +7,26 @@
 (def server-port 3000)
 (def osc-in-port 33333)
 (def osc-out-port 11111)
-(def res-dir (aget (.-argv js/process) 2)) ;;resource directory passed as arg
+(def page-dir (aget (.-argv js/process) 2)) ;;resource directory passed as arg
 (defonce io (atom nil))
 (defonce http-server (atom nil))
 (defonce osc-server (atom nil))
 (defonce osc-client (atom nil))
 
 (defn start-app []
-  (println "starting main server")
   (let [app (ep)]
-    (.get app "/" (fn [req res] (.send res "Hello, world!")))
-    (.listen app server-port (fn [] (println "listening on port " (str server-port))))
+    (if (not (nil? page-dir))
+      (do (.use app (ep.static. page-dir))
+          (println "hosting webpage located at" page-dir))
+      (do (.use app (ep.static. (str js/__dirname "/")))
+          (println "hosting webpage located at" (str js/__dirname "/")))
+      )
+    (.listen app server-port (fn [] (println "starting app server on port" (str server-port))))
     )
   )
 
 (defn start-ws [cur-http]
+  (println "starting websockets")
   (sio cur-http)
   )
 
@@ -37,11 +42,13 @@
 (defn start-osc-server []
   (let [cur-server (osc.Server. osc-in-port "0.0.0.0")]
     (.on cur-server "message" osc-router)
+      (println "starting osc server on port" osc-in-port)
     cur-server)
 
   )
 
 (defn start-osc-client []
+  (println "osc outgoing on port" osc-out-port)
   (osc.Client. "127.0.0.1" osc-out-port))
 
 (defn start! []
