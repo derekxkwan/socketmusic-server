@@ -1,0 +1,17 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src"]
+
+ :dependencies
+ []
+
+ :builds
+ {:app
+  {:main socketmusic.core/main
+   :target :node-script
+   :output-to "socketmusic.js"
+   :devtools
+   {:after-load socketmusic.core/start!
+    :before-load socketmusic.core/stop!}}}
+   }
+
