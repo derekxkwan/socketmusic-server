@@ -25,10 +25,10 @@ format for osc messages sent to the osc server
 - `/debug [args]` prints the args to the console
 - `/client-list` sends out base64 client list on osc output port on address `/client-list`
 - `/num-clients` sends the number of clients on osc output port on address `/num-clients`
-- `/ws/all [args]` broadcasts array of args to all clients
-- `/ws/client-idx [client-idx] [args]` - sends array of args to client at given index of client-list
-- `/ws/client [client] [args]` - sends array of args to specified (in base64) client
-- `/ws/rand-client [args]` - sends array of args to random client
+- `/ws/all [event-name] [opt. args]` broadcasts named event with args bundled in array format to all clients
+- `/ws/client-idx [client-idx] [event-name] [opt. args]` - trigger named event with args bundled in array format to client at given index of client-list
+- `/ws/client [client] [opt. args]` - trigger named event with args bundled in array format to specified (in base64) client
+- `/ws/rand-client [opt. args]` -  trigger named event with args bundled in array format to random client
 
 ## build
 - compile: `shadow-cljs compile app`
@@ -36,4 +36,4 @@ format for osc messages sent to the osc server
 - build: `shadow-cljs build app`
 - 
 ## license
-gpl v 3
+gpl v3
