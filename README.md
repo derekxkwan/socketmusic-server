@@ -1,4 +1,4 @@
-# socketmusic-server v 0.01
+# socketmusic-server v0.01
 server for the socketmusic series of projects (such as [socketMusic:wireless](https://derekxkwan.com/musicart/socketMusic.html))
 
 ## about
@@ -22,7 +22,7 @@ abstracting out the server from my previous socketmusic:wireless project and mov
 
 ## osc-messages
 format for osc messages sent to the osc server
-- `/debug args` prints the args to the console
+- `/debug [args]` prints the args to the console
 - `/client-list` sends out base64 client list on osc output port on address `/client-list`
 - `/num-clients` sends the number of clients on osc output port on address `/num-clients`
 - `/ws/all [args]` broadcasts array of args to all clients
