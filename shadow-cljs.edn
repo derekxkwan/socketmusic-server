@@ -3,13 +3,36 @@
  ["src"]
 
  :dependencies
- []
+ [[cljsjs/nodejs-externs "1.0.4-1"]
+   ]
 
  :builds
  {:app
   {:main socketmusic.core/main
    :target :node-script
    :output-to "socketmusic.js"
+   :compiler-options
+   {:externs ["ext/socket-io.ext.js"
+              "node_modules/body-parser/index.js"
+              "node_modules/express/lib/middleware/init.js"
+              "node_modules/express/lib/middleware/query.js"
+              "node_modules/express/lib/router/index.js"
+              "node_modules/express/lib/router/layer.js"
+              "node_modules/express/lib/router/route.js"
+              "node_modules/express/lib/application.js"
+              "node_modules/express/lib/express.js"
+              "node_modules/express/lib/request.js"
+              "node_modules/express/lib/response.js"
+              "node_modules/express/lib/utils.js"
+              "node_modules/express/lib/view.js"
+              "node_modules/node-osc/lib/Client.js"
+              "node_modules/node-osc/lib/decode.js"
+              "node_modules/node-osc/lib/index.js"
+              "node_modules/node-osc/lib/Message.js"
+              "node_modules/node-osc/lib/safeDgram.js"
+              "node_modules/node-osc/lib/Server.js"
+              "node_modules/node-osc/lib/types.js"
+              ]}
    :devtools
    {:after-load socketmusic.core/start!
     :before-load socketmusic.core/stop!}}}

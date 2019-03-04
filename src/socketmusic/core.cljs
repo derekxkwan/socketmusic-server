@@ -1,4 +1,6 @@
-(ns socketmusic.core)
+(ns socketmusic.core
+  ;(:require [cljsjs.socket-io :as sio])
+  )
 
 (def osc (js/require "node-osc"))
 (def sio (js/require "socket.io"))
@@ -56,7 +58,7 @@
          
 
 (defn ws-broadcast [args]
-  (println (str "broadcasting " args))
+  ;(println (str "broadcasting " args))
   (let [address (first args)
         cur-args (apply array (rest args))]
     (.emit @io address cur-args)
