@@ -6,7 +6,7 @@
 (def sio (js/require "socket.io"))
 (def ep (js/require "express"))
 
-(def server-port 3000)
+(def server-port 8080)
 (def osc-in-port 33333)
 (def osc-out-port 11111)
 (def page-dir (aget (.-argv js/process) 2)) ;;resource directory passed as arg
